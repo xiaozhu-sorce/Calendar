@@ -32,8 +32,41 @@ public class CalendarUtils
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static String monthYearFromDate(LocalDate date)
     {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd yyyy");
         return date.format(formatter);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static LocalDate getLocalDate(int year, int month, int day)
+    {
+        LocalDate date = LocalDate.of(year, month, day);
+        return date;
+    }
+
+    public String makeDateString(int day,int month,int year)
+    {
+        return getMonthFormatted(month) + " " + day + " " + year;
+    }
+
+    private String getMonthFormatted(int month)
+    {
+        switch (month)
+        {
+            case 1 : return "JAN";
+            case 2 : return "FEB";
+            case 3 : return "MAR";
+            case 4 : return "APR";
+            case 5 : return "MAY";
+            case 6 : return "JUN";
+            case 7 : return "JUL";
+            case 8 : return "AUG";
+            case 9 : return "SEP";
+            case 10 : return "OCT";
+            case 11 : return "NOV";
+            case 12 : return "DEC";
+        }
+
+        return "JUN";
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

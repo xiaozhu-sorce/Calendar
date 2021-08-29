@@ -53,6 +53,13 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setMonthView();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void previousMonthAction(View view)
     {
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
